@@ -71,7 +71,7 @@
 </style>
 
 <!-- Toolbar -->
-<div class="toolbar" role="banner">
+<!-- <div class="toolbar" role="banner">
   <img width="40" alt="Angular Logo"
     src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==" />
   <span>Welcome</span>
@@ -84,44 +84,74 @@
         fill="#fff" />
     </svg>
   </a>
-</div>
+</div> -->
 
 <div class="content" role="main">
 
-
-  <!--Head of the conversor-->
-  <div class="page-header">
+<form>
+  <div id="div1">
     <h1>Currency Converter</h1>
-  </div>
-  <p class="lead">A Seamless Currency Converter</p>
-  <div class="row" ng-controller="CurrencyConvertController">
-    <div class="col-md-8 col-md-offset-2">
-      <div class="form-group">
-        <label for="amount">Amount: </label>
-        <input type="number" step="any" class="form-control" id="amount" ng-model="currencyObject.amount">
-      </div>
+    
+    <!--OPÇÕES DE MOEDAS PARA CONVERTER-->
+    <div id="div2">
+      <b><label id="labelFrom">From: </label></b><br />
+      <select id="opçõesFrom">
+        <option>Real</option>
+        <option>Dólar Americano</option>
+        <option>Dólar Canadense</option>
+        <option>Dólar Australiano</option>
+        <option>Euro</option>
+        <option>Peso Argentino</option>
+        <option>Peso Chileno</option>
+        <option>Peso Uruguaio</option>
+        <option>Bitcoin</option>
+        <option>Ouro</option>						
+      </select><br />
     </div>
-  </div>
 
-  <div class="col-md-8 col-md-offset-2">
-    <div class="form-group">
-      <label for="from">From: </label>
-      <select class="form-control" id="from" ng-model="currencyObject.from" ng-change="getexchangerate()">
-        <!-- <option ng-repeat="currencyCode in currencyCodes" value="{{currencyCode.value}}">{{currencyCode.display}} -->
-        <!-- </option> -->
-      </select>
+    <div id="div3">
+      <b><label id="labelTo">To: </label></b><br />
+      <select id="opçõesTo">
+        <option>Real</option>
+        <option>Dólar Americano</option>
+        <option>Dólar Canadense</option>
+        <option>Dólar Australiano</option>
+        <option>Euro</option>
+        <option>Peso Argentino</option>
+        <option>Peso Chileno</option>
+        <option>Peso Uruguaio</option>
+        <option>Bitcoin</option>
+        <option>Ouro</option>						
+      </select><br />
     </div>
-  </div>
+    
+    <!--ENTRADA DO VALOR A SER CONVERTIDO-->
+    <div id="div4">
+      <b><label>Amount: </label></b><br />		
+      <input type="text" id="labelValue" />
+    </div><br />
+    
+    <!--botões CONVERTER E RESETAR-->
+    <input type="button" value="Convert" id="btn1" onClick="conversao()" />
+    <input type="reset" value="Clean" id="btn2">
+    <br/>
+    
+    <!--RESULTADO QUE SERÁ MOSTRADO NA TELA-->
+    <div id="div5">
+      <br />  
+      <label id="labelResult"><b>Result: </b></label><br />
+      <span id="finalValeu"></span>
+    </div><br />
+    
 
-  <div class="col-md-8 col-md-offset-2">
-    <div class="form-group">
-      <label for="to">To: </label>
-      <select class="form-control" id="to" ng-model="currencyObject.to" ng-change="getexchangerate()">
-        <!-- <option ng-repeat="currencyCode in currencyCodes" value="{{currencyCode.value}}">{{currencyCode.display}}
-        </option> -->
-      </select>
-    </div>
-  </div>
+  </div>	
+
+</form>
+
+
+
+
+
 
 
 
