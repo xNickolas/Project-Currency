@@ -1,74 +1,12 @@
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * Delete the template below * * * * * * * * * * -->
-<!-- * * * * * * * to get started with your project! * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<header>
+  <nav>
+    <app-nav-bar></app-nav-bar>
+  </nav>
+</header>
 
-<style>
-  :host {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    font-size: 14px;
-    color: #333;
-    box-sizing: border-box;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    margin: 8px 0;
-  }
-
-  p {
-    margin: 0;
-  }
-
-  .spacer {
-    flex: 1;
-  }
-
-  .toolbar {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    background-color: #1976d2;
-    color: white;
-    font-weight: 600;
-  }
-
-  .toolbar img {
-    margin: 0 16px;
-  }
-
-  .toolbar #twitter-logo {
-    height: 40px;
-    margin: 0 16px;
-  }
-
-  .toolbar #twitter-logo:hover {
-    opacity: 0.8;
-  }
-
-  .content {
-    display: flex;
-    margin: 82px auto 32px;
-    padding: 0 16px;
-    max-width: 960px;
-    flex-direction: column;
-    align-items: center;
-  }
-</style>
+<section id="routing">
+  <router-outlet></router-outlet>
+</section>
 
 <!-- Toolbar -->
 <!-- <div class="toolbar" role="banner">
@@ -86,89 +24,6 @@
   </a>
 </div> -->
 
-<div class="content" role="main">
-
-<form>
-  <div id="div1">
-    <h1>Currency Converter</h1>
-    
-    <!--OPÇÕES DE MOEDAS PARA CONVERTER-->
-    <div id="div2">
-      <b><label id="labelFrom">From: </label></b><br />
-      <select id="opçõesFrom">
-        <option>Real</option>
-        <option>Dólar Americano</option>
-        <option>Dólar Canadense</option>
-        <option>Dólar Australiano</option>
-        <option>Euro</option>
-        <option>Peso Argentino</option>
-        <option>Peso Chileno</option>
-        <option>Peso Uruguaio</option>
-        <option>Bitcoin</option>
-        <option>Ouro</option>						
-      </select><br />
-    </div>
-
-    <div id="div3">
-      <b><label id="labelTo">To: </label></b><br />
-      <select id="opçõesTo">
-        <option>Real</option>
-        <option>Dólar Americano</option>
-        <option>Dólar Canadense</option>
-        <option>Dólar Australiano</option>
-        <option>Euro</option>
-        <option>Peso Argentino</option>
-        <option>Peso Chileno</option>
-        <option>Peso Uruguaio</option>
-        <option>Bitcoin</option>
-        <option>Ouro</option>						
-      </select><br />
-    </div>
-    
-    <!--ENTRADA DO VALOR A SER CONVERTIDO-->
-    <div id="div4">
-      <b><label>Amount: </label></b><br />		
-      <input type="text" id="labelValue" />
-    </div><br />
-    
-    <!--botões CONVERTER E RESETAR-->
-    <input type="button" value="Convert" id="btn1" onClick="conversao()" />
-    <input type="reset" value="Clean" id="btn2">
-    <br/>
-    
-    <!--RESULTADO QUE SERÁ MOSTRADO NA TELA-->
-    <div id="div5">
-      <br />  
-      <label id="labelResult"><b>Result: </b></label><br />
-      <span id="finalValeu"></span>
-    </div><br />
-    
-
-  </div>	
-
-</form>
 
 
 
-
-
-
-
-
-
-
-
-
-</div>
-
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content above * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * End of Placeholder * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-
-
-
-<router-outlet></router-outlet>

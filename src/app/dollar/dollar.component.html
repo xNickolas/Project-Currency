@@ -1,0 +1,47 @@
+<style>
+    :host {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        font-size: 14px;
+        color: #333;
+        box-sizing: border-box;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    .content {
+        display: flex;
+        margin: 82px auto 32px;
+        padding: 0 0px;
+        max-width: 960px;
+        flex-direction: column;
+        align-items: center;
+    }
+</style>
+
+
+<div id="dollarC" class="content" role="main">
+    <form>
+        <h1>Currency Converter</h1>
+        <p>From Currency BRL to USD</p>
+        <br />
+
+        <div class="group" id="realTo">
+            <input type="number" (keyup)="converseReal($event)" required>
+            <span class="highlight"></span>
+            <span class="bar"></span>
+            <label>BRL</label>
+            <p>$: {{realResult}}</p>
+        </div>
+        <br />
+
+
+        <p>From Currency USD to BRL</p>
+        <br />
+
+        <div class="group" id="dollarTo">
+            <input type="number" (keyup)="converseDollar($event)" required>
+            <label>USD</label>
+            <p>R$: {{dollarResult}}</p>
+        </div>
+    </form>
+</div>
