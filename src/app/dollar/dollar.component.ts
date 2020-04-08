@@ -12,7 +12,7 @@ export class DollarComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  valueDollar: number = 5.243199;
+  valueDollar: number = 5.24;
   realResult: number;
   dollarResult: number;
 
