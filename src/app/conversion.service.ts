@@ -1,18 +1,19 @@
 import { Injectable } from '@angular/core';
-// import {HttpClient} from '@angular/common/http';
+import {HttpClient} from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ConversionService {
-// private apiUrl = "https://api.exchangeratesapi.io/latest";
+  private apiUrl = "https://api.exchangeratesapi.io/latest";
 
+  base ='?base=USD';
+  private finalurl = this.apiUrl + this.base;
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
-  // getData(){
-  //   console.log("Works")
-  //   return this.http.get(this.apiUrl)
-  // }
+  getData(){
+    return this.http.get(this.finalurl)
+  }
 
 }

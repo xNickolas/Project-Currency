@@ -6,8 +6,8 @@ import { AppComponent } from './app.component';
 import { CalculatorComponent } from './calculator/calculator.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { DollarComponent } from './dollar/dollar.component';
-import { EuroComponent } from './euro/euro.component';
 import { LibraComponent } from './libra/libra.component';
+import { ConversionService } from './conversion.service';
 
 @NgModule({
   declarations: [
@@ -15,14 +15,13 @@ import { LibraComponent } from './libra/libra.component';
     CalculatorComponent,
     NavBarComponent,
     DollarComponent,
-    EuroComponent,
     LibraComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [ConversionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

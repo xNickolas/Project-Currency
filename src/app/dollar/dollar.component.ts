@@ -12,23 +12,23 @@ export class DollarComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  valueDollar: number = 5.24;
-  realResult: number;
-  dollarResult: number;
+  // valueDollar: number = 5.24;
+  // realResult: number;
+  // dollarResult: number;
 
 
-  converseReal(event){
-    let result = event.target.value;
-    this.realResult = Number(result);
-    this.realResult = this.realResult / this.valueDollar;
-    console.log(this.realResult);
-  }
+  // converseReal(event){
+  //   let result = event.target.value;
+  //   this.realResult = Number(result);
+  //   this.realResult = this.realResult / this.valueDollar;
+  //   console.log(this.realResult);
+  // }
 
-  converseDollar(event){
-    let result = event.target.value;
-    this.dollarResult = Number(result);
-    this.dollarResult = this.dollarResult * this.valueDollar;
-    console.log(this.dollarResult);
-  }
+  // converseDollar(event){
+  //   let result = event.target.value;
+  //   this.dollarResult = Number(result);
+  //   this.dollarResult = this.dollarResult * this.valueDollar;
+  //   console.log(this.dollarResult);
+  // }
 
 }

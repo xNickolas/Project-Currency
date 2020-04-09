@@ -21,77 +21,40 @@
 <div class="content" role="main">
 
 
-
-    
-<!-- 
-    <form>
-        <div id="div1">
+    <div id="dollarC" class="content" role="main">
+        <!-- <form> -->
             <h1>Currency Converter</h1>
 
-            OPÇÕES DE MOEDAS PARA CONVERTER
-            <div id="div2">
-                <b><label id="labelFrom">From: </label></b><br />
-                <select id="opçõesFrom">
-                    <option>Real</option>
-                    <option value="US$">Dólar Americano</option>
-                    <option value="C$">Dólar Canadense</option>
-                    <option value="A$">Dólar Australiano</option>
-                    <option>Euro</option>
-                    <option>Peso Argentino</option>
-                    <option>Peso Chileno</option>
-                    <option>Peso Uruguaio</option>
-                    <option>Bitcoin</option>
-                    <option>Ouro</option>
-                </select><br />
+    
+            <!-- <div class="group" id="realTo"> -->
+                {{moneyOne}} <input type="number" value="{{numResultTwo}}" (keyup)="calcOne($event)" required>
+                <!-- <span class="highlight"></span>
+                <span class="bar"></span>
+            </div> -->
+            <br />
+    
+            <!-- <div class="group" id="dollarTo"> -->
+                {{moneyTwo}}<input type="number" value="{{numResult}}" (keyup)="calcTwo($event)" required>
+            <!-- </div> -->
+
+
+            <div class="selectormoney">
+                <div class="money"> Moeda:
+                  <select (change)="changemoneyOne($event)">
+                    <option *ngFor="let i of moneys">{{ i }}</option>
+                  </select>
+                </div>
+                
+                <div class="money1"> Moeda:
+                  <select (change)="changemoneyTwo($event)">
+                    <option *ngFor="let j of moneys">{{ j }}</option>
+                  </select>
+                </div>
             </div>
 
-            <div id="div3">
-                <b><label id="labelTo">To: </label></b><br />
-                <select id="opçõesTo">
-                    <option>Real</option>
-                    <option>Dólar Americano</option>
-                    <option>Dólar Canadense</option>
-                    <option>Dólar Australiano</option>
-                    <option>Euro</option>
-                    <option>Peso Argentino</option>
-                    <option>Peso Chileno</option>
-                    <option>Peso Uruguaio</option>
-                    <option>Bitcoin</option>
-                    <option>Ouro</option>
-                </select>
-            </div><br />
 
-
-            ENTRADA DO VALOR A SER CONVERTIDO
-            <div class="group" id="div4">
-                <input type="number" id="labelValue" required>
-                <label>Amount:</label>
-            </div><br />
-
-
-            botões CONVERTER E RESETAR
-            <input type="button" value="Convert" id="btn1" onClick="conversao()" />
-            <input type="reset" value="Clean" id="btn2">
-            <br />
-
-
-
-
-            
-
-            RESULTADO QUE SERÁ MOSTRADO NA TELA
-            <div id="div5">
-                <br />
-                <label id="labelResult"><b>Result: </b></label><br />
-                <span id="finalValeu"></span>
-            </div><br />
-
-
-        </div>
-
-    </form> -->
-
-
+        <!-- </form> -->
+    </div>
 
 
 </div>
