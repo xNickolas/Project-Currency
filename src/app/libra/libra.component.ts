@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ConversionService } from './../conversion.service';
 
 @Component({
   selector: 'app-libra',
@@ -7,9 +8,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LibraComponent implements OnInit {
 
-  constructor() { }
+  constructor(private moneyApi:ConversionService) { }
+
+  moneys:any;
+  rates:any;
+  entries:any;
 
   ngOnInit(): void {
+    this.callApi()
+  }
+
+  callApi() {
+    let moneydata;
+    this.moneyApi.getData().subscribe(
+      (data) => {
+        moneydata = new Object(data);
+        this.entries = Object.entries(moneydata.rates); // Object.entries(moneydata.rates);
+        this.moneys = Object.keys(moneydata.rates);
+        this.rates = Object.values(moneydata.rates);
+      }
+    );
   }
 
   valuePound: number = 6.35;
