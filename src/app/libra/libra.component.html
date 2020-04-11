@@ -26,16 +26,19 @@
         <br /> -->
 
         <div class="group" id="realTo">
+            <!-- a função converseReal é chamada quando ocorre o evento keyup (event binding)  -->
             <input type="number" (keyup)="converseReal($event)" required>
             <span class="highlight"></span>
             <span class="bar"></span>
             <label>BRL</label>
+            <!-- a variável realResult instânciada no component.ts deste componente é utilizada abaixo utilizando - se interpolação : {{nome_variável}} -->
             <p>£: {{realResult}}</p>
         </div>
         <br />
 
 
         <div class="group" id="poundTo">
+            <!-- a função conversePound é chamada quando ocorre o evento keyup (event binding)  -->
             <input type="number" (keyup)="conversePound($event)" required>
             <label>GBP</label>
             <p>R$: {{poundResult}}</p>
