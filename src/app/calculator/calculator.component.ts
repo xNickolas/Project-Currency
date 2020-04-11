@@ -30,7 +30,8 @@ export class CalculatorComponent implements OnInit {
   rates:any;
   ngOnInit(): void {
     let moneydata;
-    this.service.getData().subscribe(
+    // TODO: fazer com que parametro do getData seja dinamico conforme opção selecionada no select 
+    this.service.getData("BRL").subscribe(
       (data) => {
         moneydata = new Object(data);
         this.entries = Object.entries(moneydata.rates); // Object.entries(moneydata.rates);

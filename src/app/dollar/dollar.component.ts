@@ -22,7 +22,7 @@ export class DollarComponent implements OnInit {
 
   callApi() {
     let moneydata;
-    this.moneyApi.getData().subscribe(
+    this.moneyApi.getData("BRL").subscribe(
       (data) => {
         moneydata = new Object(data);
         this.entries = Object.entries(moneydata.rates); // Object.entries(moneydata.rates);

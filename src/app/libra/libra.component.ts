@@ -20,7 +20,7 @@ export class LibraComponent implements OnInit {
 
   callApi() { // função 
     let moneydata; // variável escopo da função
-    this.moneyApi.getData().subscribe( // chama -se a função getData definida no serviço conversion-service
+    this.moneyApi.getData("BRL").subscribe( // chama -se a função getData definida no serviço conversion-service
       (data) => {           // subscribe: "escuta" de maneira assíncrona resposta da Api 
         moneydata = new Object(data); // data: objeto retornado pela Api 
         this.entries = Object.entries(moneydata.rates); // chaves e valores do objeto da Api
@@ -29,7 +29,7 @@ export class LibraComponent implements OnInit {
       }
     );
   }
-
+  
   valuePound: number = 6.35; // setado com valor fixo TODO: tirar valor fixo inicial
   realResult: number;
   poundResult: number;
@@ -39,6 +39,9 @@ export class LibraComponent implements OnInit {
     let result = event.target.value; // pega valor do imput
     this.realResult = Number(result); // usa o construtor Number que transforma string para number
     // TODO: usar valuePound com o valor adquirido na Api
+    let index = this.moneys.indexOf("CAD");
+    console.log(this.rates[index]);
+    this.valuePound = this.rates[index];
     this.realResult = this.realResult / this.valuePound; // faz a conversão dos valores das moedas
     console.log(this.realResult); // exibe o resultado no console do inspect
   }
@@ -49,6 +52,12 @@ export class LibraComponent implements OnInit {
     this.poundResult = this.poundResult * this.valuePound;
     console.log(this.poundResult);
   }
+
+  // TODO: talvez nao precise ser criada aqui apenas no componente Currency
+  // changeCurrentRate(selectedOptionTwo) {
+  //   let index = this.moneys.indexOf(selectedOptionTwo);
+  //   this.valuePound = this.rates[index];
+  // }
 
 
 }
