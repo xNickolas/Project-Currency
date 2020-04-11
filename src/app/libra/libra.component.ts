@@ -15,20 +15,20 @@ export class LibraComponent implements OnInit {
   entries:any;
 
   ngOnInit(): void {
-    this.callApi()
+    // this.callApi()
   }
 
-  callApi() {
-    let moneydata;
-    this.moneyApi.getData().subscribe(
-      (data) => {
-        moneydata = new Object(data);
-        this.entries = Object.entries(moneydata.rates); // Object.entries(moneydata.rates);
-        this.moneys = Object.keys(moneydata.rates);
-        this.rates = Object.values(moneydata.rates);
-      }
-    );
-  }
+  // callApi() {
+  //   let moneydata;
+  //   this.moneyApi.getData().subscribe(
+  //     (data) => {
+  //       moneydata = new Object(data);
+  //       this.entries = Object.entries(moneydata.rates); // Object.entries(moneydata.rates);
+  //       this.moneys = Object.keys(moneydata.rates);
+  //       this.rates = Object.values(moneydata.rates);
+  //     }
+  //   );
+  // }
 
   valuePound: number = 6.35;
   realResult: number;
@@ -38,6 +38,7 @@ export class LibraComponent implements OnInit {
   converseReal(event){
     let result = event.target.value;
     this.realResult = Number(result);
+
     this.realResult = this.realResult / this.valuePound;
     console.log(this.realResult);
   }

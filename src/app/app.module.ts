@@ -8,6 +8,8 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { DollarComponent } from './dollar/dollar.component';
 import { LibraComponent } from './libra/libra.component';
 import { ConversionService } from './conversion.service';
+import {HttpClientModule} from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -19,7 +21,8 @@ import { ConversionService } from './conversion.service';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [ConversionService],
   bootstrap: [AppComponent]

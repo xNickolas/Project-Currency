@@ -7,7 +7,7 @@ import {HttpClient} from '@angular/common/http';
 export class ConversionService {
   private apiUrl = "https://api.exchangeratesapi.io/latest";
 
-  base ='?base=GBP';
+  base ='?base=USD';
   private finalurl = this.apiUrl + this.base;
 
   constructor(private http: HttpClient) { }
