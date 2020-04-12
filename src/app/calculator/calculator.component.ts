@@ -10,18 +10,18 @@ import { FormGroup, FormControl, Validators } from '@angular/forms'
 export class CalculatorComponent implements OnInit {
   numResult:number;
   numResultTwo:number; 
-  currentRate = 5.24; // melhorar
+  currentRate = 5.24;
   convertionRate:number;
   moneyOne:string;
-  moneyTwo:string; // talvez não necessario
-  formdata; // TODO: retirar
+  moneyTwo:string;
+  formdata;
 
 
   constructor(private service: ConversionService) {
-    this.moneyOne = "RS";
-    this.moneyTwo = "USD";
-    this.numResult = 0;
-    this.numResultTwo = 0;
+    this.moneyOne = "USD";
+    this.moneyTwo = "RS";
+    this.numResult;
+    this.numResultTwo;
 
   }
 
@@ -29,29 +29,33 @@ export class CalculatorComponent implements OnInit {
   moneys:any;
   rates:any;
   ngOnInit(): void {
-    let moneydata;
-    this.service.getData().subscribe(
-      (data) => {
-        moneydata = new Object(data);
-        this.entries = Object.entries(moneydata.rates); // Object.entries(moneydata.rates);
-        this.moneys = Object.keys(moneydata.rates);
-        this.rates = Object.values(moneydata.rates); 
-      console.log(`moneydata (array keys dos dados da api.rates): ${this.rates}`)
-      }
-    );
+    this.callCalculator();
 
-    //input validation
+    
     this.formdata = new FormGroup({
-      // fullname: new FormControl("", this.fullnameValidation),
+      
       valOne: new FormControl("", Validators.compose([
         Validators.required,
       ])),
       valTwo: new FormControl("", Validators.compose([
         Validators.required,
-        // Validators.pattern("[^ @]*@[^ @]*")
+        
       ])),
     });
 
+  }
+
+  callCalculator() {
+    let moneydata;
+    this.service.getData().subscribe(
+      (data) => {
+        moneydata = new Object(data);
+        this.entries = Object.entries(moneydata.rates); 
+        this.moneys = Object.keys(moneydata.rates);
+        this.rates = Object.values(moneydata.rates); 
+      console.log(`moneydata (array keys dos dados da api.rates): ${this.rates}`)
+      }
+    );
   }
 
 
@@ -68,21 +72,16 @@ export class CalculatorComponent implements OnInit {
     this.numResultTwo /= this.currentRate; 
   }
 
-  // TODO: submit button is disable
-  onClickSubmit(data){
-
-  }
-
+  
+  
   changemoneyOne(event) {
-    // alterar o valor de convertionRate
+   
     this.moneyOne = event.target.value
-    // TODO: consertar
     let index = this.moneys.indexOf('BRL');
     this.currentRate = this.rates[index];
   }
 
   changemoneyTwo(event) {
-    // alterar o valor de convertionRate
     this.moneyTwo = event.target.value
   }
 

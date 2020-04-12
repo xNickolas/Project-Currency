@@ -27,25 +27,28 @@
 
     
             <!-- <div class="group" id="realTo"> -->
-                {{moneyOne}} <input type="number" value="{{numResultTwo}}" (keyup)="calcOne($event)" required>
+            {{moneyOne}} <input type="number" value="{{numResultTwo}}" (keyup)="calcOne($event)">
                 <!-- <span class="highlight"></span>
                 <span class="bar"></span>
             </div> -->
-            <br />
     
             <!-- <div class="group" id="dollarTo"> -->
-                {{moneyTwo}}<input type="number" value="{{numResult}}" (keyup)="calcTwo($event)" required>
+            {{moneyTwo}}<input type="number" value="{{numResult}}" (keyup)="calcTwo($event)">
             <!-- </div> -->
+            <br/>
 
 
             <div class="selectormoney">
                 <div class="money"> Moeda:
+                    <br/>
                   <select (change)="changemoneyOne($event)">
                     <option *ngFor="let i of moneys">{{ i }}</option>
                   </select>
                 </div>
-                
+
+
                 <div class="money1"> Moeda:
+                    <br/>
                   <select (change)="changemoneyTwo($event)">
                     <option *ngFor="let j of moneys">{{ j }}</option>
                   </select>

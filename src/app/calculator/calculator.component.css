@@ -39,6 +39,23 @@ input:focus ~ label, input:valid ~ label {
     color:#5264AE;
 } */
 
+
+input[type='number'] {
+  background-color: transparent;
+  border-radius: 5px;
+  font-size:18px;
+  padding:10px 10px 10px 5px;
+  display:block;
+  width:300px;
+  border:none;
+  border-bottom:1px solid #676767;
+}
+
+input:focus 		{ outline:none; }
+
+
+
+
 .conversor {
 	text-align: center;
 	/* background-color: #42A948; */
@@ -52,9 +69,13 @@ input:focus ~ label, input:valid ~ label {
 	width: 200px;
 }
   
-  .selectormoney {
-	display: flex;
-	margin-left: 500px;
+.selectormoney {
+  margin-left: 0px;
+}
+
+select {
+  background-color: transparent;
+  border-radius: 10px;
 }
   
   .fa-exchange-alt {
