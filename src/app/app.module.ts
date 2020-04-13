@@ -7,6 +7,7 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { DollarComponent } from './dollar/dollar.component';
 import { ConversionService } from './conversion.service';
 import {HttpClientModule} from '@angular/common/http';
+import { LineChartComponent } from './line-chart/line-chart.component';
 
 
 @NgModule({
@@ -15,6 +16,7 @@ import {HttpClientModule} from '@angular/common/http';
     CalculatorComponent,
     NavBarComponent,
     DollarComponent,
+    LineChartComponent,
   ],
   imports: [
     BrowserModule,
