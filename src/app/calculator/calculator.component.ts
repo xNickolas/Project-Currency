@@ -10,7 +10,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms'
 export class CalculatorComponent implements OnInit {
   numResult:number;
   numResultTwo:number; 
-  currentRate = 5.24;
+  currentRate = 5.19;
   convertionRate:number;
   moneyOne:string;
   moneyTwo:string;
@@ -21,7 +21,7 @@ export class CalculatorComponent implements OnInit {
     this.moneyOne = "USD";
     this.moneyTwo = "RS";
     this.numResult;
-    this.numResultTwo;
+    this.numResultTwo = 1;
 
   }
 
@@ -88,12 +88,20 @@ export class CalculatorComponent implements OnInit {
   changemoneyOne(event) {
    
     this.moneyOne = event.target.value
-    let index = this.moneys.indexOf('BRL');
-    this.currentRate = this.rates[index];
+    // let index = this.moneys.indexOf('BRL');
+    // this.currentRate = this.rates[index];
+    this.callCalculator()
+    this.changeCurrentRate(this.moneyTwo);
   }
 
   changemoneyTwo(event) {
     this.moneyTwo = event.target.value
+    this.changeCurrentRate(this.moneyTwo) 
+  }
+
+  changeCurrentRate(selectedOptionTwo) {
+    let index = this.moneys.indexOf(selectedOptionTwo);
+    this.currentRate = this.rates[index];
   }
 
   // valueDollar: number = 5.24;
