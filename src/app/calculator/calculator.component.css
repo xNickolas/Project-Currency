@@ -67,9 +67,10 @@ input:focus 		{ outline:none; }
   .conversor input {
 	font-size: 25px;
 	width: 200px;
-}
+} 
   
 .selectormoney {
+  display: flex;
   margin-left: 0px;
 }
 

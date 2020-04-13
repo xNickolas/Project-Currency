@@ -30,6 +30,17 @@ export class CalculatorComponent implements OnInit {
   rates:any;
   ngOnInit(): void {
     this.callCalculator();
+    // let moneydata;
+    // // TODO: fazer com que parametro do getData seja dinamico conforme opção selecionada no select 
+    // this.service.getData("BRL").subscribe(
+    //   (data) => {
+    //     moneydata = new Object(data);
+    //     this.entries = Object.entries(moneydata.rates); // Object.entries(moneydata.rates);
+    //     this.moneys = Object.keys(moneydata.rates);
+    //     this.rates = Object.values(moneydata.rates); 
+    //   console.log(`moneydata (array keys dos dados da api.rates): ${this.rates}`)
+    //   }
+    // );
 
     
     this.formdata = new FormGroup({
@@ -47,7 +58,7 @@ export class CalculatorComponent implements OnInit {
 
   callCalculator() {
     let moneydata;
-    this.service.getData().subscribe(
+    this.service.getData("BRL").subscribe(
       (data) => {
         moneydata = new Object(data);
         this.entries = Object.entries(moneydata.rates); 

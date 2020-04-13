@@ -40,15 +40,14 @@
 
             <div class="selectormoney">
                 <div class="money"> Moeda:
-                    <br/>
                   <select (change)="changemoneyOne($event)">
                     <option *ngFor="let i of moneys">{{ i }}</option>
                   </select>
                 </div>
 
+                <ul></ul>
 
                 <div class="money1"> Moeda:
-                    <br/>
                   <select (change)="changemoneyTwo($event)">
                     <option *ngFor="let j of moneys">{{ j }}</option>
                   </select>
