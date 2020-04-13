@@ -7,7 +7,9 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { DollarComponent } from './dollar/dollar.component';
 import { ConversionService } from './conversion.service';
 import {HttpClientModule} from '@angular/common/http';
+import { jqxChartModule } from 'jqwidgets-ng/jqxchart';
 import { LineChartComponent } from './line-chart/line-chart.component';
+import { ChartsModule } from 'ng2-charts';
 
 
 @NgModule({
@@ -21,7 +23,9 @@ import { LineChartComponent } from './line-chart/line-chart.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    jqxChartModule,
+    ChartsModule,
   ],
   providers: [ConversionService],
   bootstrap: [AppComponent]
