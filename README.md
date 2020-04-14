@@ -1,27 +1,45 @@
-# CurrencyConverter
+# MJV DevSchool - Projeto de conversor de moedas
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.7.
+**Descrição:**
 
-## Development server
+O objetivo do desafio é criar um projeto em Angular chamado “Conversor de moedas”. Nesta página será possível:
+* Ver a cotação do dia
+* Usar uma calculadora de conversão
+* Ver a conversão de outras moedas
+* Selecionar outras moedas para converter
+* Ver o histórico do preço de cada moedas
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+**Os desafios estão listados abaixo:**
+1. Criar o projeto
+2. Criar o componente da calculadora
+3. Cria o componente de navegação
+4. Alterar o componente da calculadora a partir da navegação
+5. Coletar dado da cotação de uma API
+6. Exibir o dado da cotação no componente de navegação
+7. Exibir o dado da cotação no componente da calculadora
+8. Criar o componente gráfico de histórico de preço
+9. Coletar dados históricos de uma API
+10. Exibir o dado histórico no componente de histórico de preço
 
-## Code scaffolding
+**Inspirações:**
+* https://dolarhoje.com/
+* https://economia.uol.com.br/cotacoes/cambio/
+* https://financeone.com.br/moedas/conversor-de-moedas/
+* https://www.melhorcambio.com/dolar-hoje
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+**API de consulta:**
+* https://exchangeratesapi.io/
 
-## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+**Componente de gráficos**
+* https://www.jqwidgets.com/angular/angular-chart/#https://www.jqwidgets.com/angular/angular-chart/angular-chart-lineseries.htm
+* ```ng add jqwidgets-ng```
 
-## Running unit tests
+ou 
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+* usar o `chart.js`
+* exemplo que o Celio criou para ajudar vocês! https://drive.google.com/open?id=1LhhEmUPoJY5cjg4Xxxa5yz4pVoh5mgZs
 
-## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+**Projetos da Turma:**
+- Nickolas + Diego Minelli: https://github.com/xNickolas/Project-Currency
