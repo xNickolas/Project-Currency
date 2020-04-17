@@ -11,7 +11,7 @@ import { Color, Label } from 'ng2-charts';
 export class LineChartComponent implements OnInit {
 
   lineChartData: ChartDataSets[] = [
-    { data: [85, 72, 78, 75, 77, 75, 90], label: 'Currencies price history' },
+    { data: [3.1, 3.3, 3.9, 4.5, 4.8, 4.9, 5.3, 6.3, 6.1, 6.0, 4.5, 6,12], label: 'Currencies price history' },
   ];
   
   source: any = 
@@ -23,7 +23,7 @@ export class LineChartComponent implements OnInit {
     url: 'https://api.exchangeratesapi.io/history?start_at=2018-01-01&end_at=2018-09-01 HTTP/1.1'
   }
 
-  lineChartLabels: Label[] = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'];
+  lineChartLabels: Label[] = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
 
 	getWidth() : any {
@@ -36,7 +36,7 @@ export class LineChartComponent implements OnInit {
   
   overrides = {
     legend: {
-      labels: { fontColor: 'white' }
+      labels: { fontColor: 'black' }
     },
   };
 
@@ -44,7 +44,7 @@ export class LineChartComponent implements OnInit {
     responsive: true,
   };
 
-  lineChartColors: Color[] = [
+  lineChartColors: Color[] = [ 
     {
       borderColor: 'black',
       backgroundColor: 'rgba(255,255,0,0.28)',

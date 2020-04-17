@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ConversionService } from './../conversion.service';
+import { ConversionService } from '../model/conversion.service';
 
 @Component({
   selector: 'app-dollar',

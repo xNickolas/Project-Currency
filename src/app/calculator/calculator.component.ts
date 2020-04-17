@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { ConversionService } from '../conversion.service';
+import { ConversionService } from '../model/conversion.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms'
+import{ Currency } from '../model/currency';
+import{ currencyOption} from '../model/currencyOption'
+import{ Calc } from '../model/calc';
+
 
 @Component({
   selector: 'app-calculator',
@@ -8,20 +12,26 @@ import { FormGroup, FormControl, Validators } from '@angular/forms'
   styleUrls: ['./calculator.component.css']
 })
 export class CalculatorComponent implements OnInit {
-  numResult:number;
-  numResultTwo:number; 
-  currentRate = 5.19;
-  convertionRate:number;
-  moneyOne:string;
-  moneyTwo:string;
-  formdata;
+  calc:any;
+  moneyBase:any;
+  moneyTwo:any;
+
+
+  // numResult:number;
+  // numResultTwo:number; 
+  // currentRate = 5.19;
+  // convertionRate:number;
+  // formdata;
 
 
   constructor(private service: ConversionService) {
-    this.moneyOne = "USD";
-    this.moneyTwo = "RS";
-    this.numResult;
-    this.numResultTwo = 1;
+    // this.moneyOne = "USD";
+    // this.moneyTwo = "RS";
+    // this.numResult;
+    // this.numResultTwo = 1;
+    this.calc =  new Calc (0 , 0);
+    this.moneyTwo = new Currency("BRL", 20); 
+    this.moneyBase = new currencyOption("USD");
 
   }
 
@@ -30,6 +40,8 @@ export class CalculatorComponent implements OnInit {
   rates:any;
   ngOnInit(): void {
     this.callCalculator();
+    this.changeCurrentRate();
+    this.setRateByApi();
     // let moneydata;
     // // TODO: fazer com que parametro do getData seja dinamico conforme opção selecionada no select 
     // this.service.getData("BRL").subscribe(
@@ -43,65 +55,85 @@ export class CalculatorComponent implements OnInit {
     // );
 
     
-    this.formdata = new FormGroup({
+    // this.formdata = new FormGroup({
       
-      valOne: new FormControl("", Validators.compose([
-        Validators.required,
-      ])),
-      valTwo: new FormControl("", Validators.compose([
-        Validators.required,
+    //   valOne: new FormControl("", Validators.compose([
+    //     Validators.required,
+    //   ])),
+    //   valTwo: new FormControl("", Validators.compose([
+    //     Validators.required,
         
-      ])),
-    });
+    //   ])),
+    // });
 
   }
 
   callCalculator() {
     let moneydata;
-    this.service.getData("BRL").subscribe(
+    this.service.getData(this.moneyBase.money_name).subscribe(
       (data) => {
         moneydata = new Object(data);
         this.entries = Object.entries(moneydata.rates); 
         this.moneys = Object.keys(moneydata.rates);
         this.rates = Object.values(moneydata.rates); 
-      console.log(`moneydata (array keys dos dados da api.rates): ${this.rates}`)
+      // console.log(`moneydata (array keys dos dados da api.rates): ${this.rates}`)
+      }
+    );
+  }
+
+
+  
+  dolarRateToReal: any;
+  euroRateToReal: any;
+  setRateByApi() {
+    let moneydata;
+    this.service.getData(this.moneyBase.money_name).subscribe(
+      (data) => {
+        moneydata = new Object(data);
+        let dolarIndex = Object.keys(moneydata.rates).indexOf('USD');
+        let euroIndex = Object.keys(moneydata.rates).indexOf('EUR');
+        this.dolarRateToReal = Object.values(moneydata.rates)[dolarIndex];
+        this.euroRateToReal = Object.values(moneydata.rates)[euroIndex];
       }
     );
   }
 
 
 
+
   calcOne(event){
-    let result = event.target.value;
-    this.numResult = Number(result);
-    this.numResult *= this.currentRate;
+    this.changeCurrentRate();
+    this.calc.inputValueTwo = this.calc.inputValueOne * this.moneyTwo.rate; 
+    // let result = event.target.value;
+    // this.numResult = Number(result);
+    // this.numResult *= this.currentRate;
   }
 
   calcTwo(event){
-    let result = event.target.value;
-    this.numResultTwo = Number(result);
-    this.numResultTwo /= this.currentRate; 
+    // let result = event.target.value;
+    // this.numResultTwo = Number(result);
+    // this.numResultTwo /= this.currentRate; 
   }
 
   
   
   changemoneyOne(event) {
    
-    this.moneyOne = event.target.value
+    // this.moneyOne = event.target.value
     // let index = this.moneys.indexOf('BRL');
     // this.currentRate = this.rates[index];
     this.callCalculator()
-    this.changeCurrentRate(this.moneyTwo);
+    this.changeCurrentRate();
   }
 
   changemoneyTwo(event) {
-    this.moneyTwo = event.target.value
-    this.changeCurrentRate(this.moneyTwo) 
+    
+    this.changeCurrentRate()
   }
 
-  changeCurrentRate(selectedOptionTwo) {
-    let index = this.moneys.indexOf(selectedOptionTwo);
-    this.currentRate = this.rates[index];
+  changeCurrentRate() {
+    let index = this.moneys.indexOf(this.moneyTwo.money_name);
+    this.moneyTwo.rate = this.rates[index];
   }
 
   // valueDollar: number = 5.24;

@@ -1,62 +1,71 @@
 <style>
-    :host {
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-        font-size: 14px;
-        color: #333;
-        box-sizing: border-box;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-    }
+  :host {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 14px;
+    color: #333;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 
-    .content {
-        display: flex;
-        margin: 82px auto 32px;
-        padding: 0 0px;
-        max-width: 960px;
-        flex-direction: column;
-        align-items: center;
-    }
+  .content {
+    display: flex;
+    margin: 82px auto 32px;
+    padding: 0 0px;
+    max-width: 960px;
+    flex-direction: column;
+    align-items: center;
+  }
 </style>
 
 <div class="content" role="main">
 
 
-    <div id="dollarC" class="content" role="main">
-        <!-- <form> -->
-            <h1>Currency Converter</h1>
+  <form id="dollarC" role="main" class="content">
 
-    
-            <!-- <div class="group" id="realTo"> -->
-            {{moneyOne}} <input type="number" value="{{numResultTwo}}" (keyup)="calcOne($event)">
-                <!-- <span class="highlight"></span>
-                <span class="bar"></span>
-            </div> -->
-    
-            <!-- <div class="group" id="dollarTo"> -->
-            {{moneyTwo}}<input type="number" value="{{numResult}}" (keyup)="calcTwo($event)">
-            <!-- </div> -->
-            <br/>
+    <h1>Currency Converter</h1>
 
 
-            <div class="selectormoney">
-                <div class="money"> Moeda:
-                  <select (change)="changemoneyOne($event)">
-                    <option *ngFor="let i of moneys">{{ i }}</option>
-                  </select>
-                </div>
 
-                <ul></ul>
+    {{moneyBase.money_name}} <input type="number" class="form-control" id="valOne"
+      [(ngModel)]="calc.inputValueOne" name="valOne" #name="ngModel" (keyup)="calcOne($event)">
 
-                <div class="money1"> Moeda:
-                  <select (change)="changemoneyTwo($event)">
-                    <option *ngFor="let j of moneys">{{ j }}</option>
-                  </select>
-                </div>
-            </div>
+    <!-- {{moneyOne}} <input type="number" value="{{numResultTwo}}" (keyup)="calcOne($event)"> -->
+
+    <!-- ----------- -->
+
+    {{moneyTwo.money_name}}<input type="number" class="form-control" id="valTwo"
+      [(ngModel)]="calc.inputValueTwo" name="valTwo" #name="ngModel" (keyup)="calcTwo($event)">
+
+    <!-- {{moneyTwo}}<input type="number" value="{{numResult}}" (keyup)="calcTwo($event)"> -->
+
+    <br />
 
 
-        <!-- </form> -->
+    <div class="selectormoney">
+      <div class="money"> Moeda:
+        <select name="money" [(ngModel)]="moneyBase.money_name" (change)="changemoneyOne($event)">
+          <option *ngFor="let i of moneys" [value]="i">{{ i }}</option>
+        </select>
+
+        <!-- <select (change)="changemoneyOne($event)">
+            <option *ngFor="let i of moneys">{{ i }}</option>
+          </select> -->
+      </div>
+
+
+
+      <div class="money1"> Moeda:
+        <select name="money1" [(ngModel)]="moneyTwo.money_name" (change)="changemoneyTwo($event)">
+          <option *ngFor="let j of moneys" [value]="j">{{ j }}</option>
+        </select>
+        <!-- <select (change)="changemoneyTwo($event)">
+            <option *ngFor="let j of moneys">{{ j }}</option>
+          </select> -->
+      </div>
     </div>
+
+  </form>
 
 
 </div>

@@ -6,7 +6,7 @@ import {HttpClient} from '@angular/common/http';
 })
 export class ConversionService {
   private apiUrl = "https://api.exchangeratesapi.io/latest";
-  private historicalMoney = "https://api.exchangeratesapi.io/history?start_at=2018-01-01&end_at=2018-09-01&base=USD/";
+  // private historicalMoney = "https://api.exchangeratesapi.io/history?start_at=2018-01-01&end_at=2018-09-01&base=USD/";
 
   base ='?base=';
 
@@ -17,8 +17,8 @@ export class ConversionService {
     return this.http.get(finalurl)
   }
 
-  gethistoricalData( /*  TODO: criar parametros da função */) { 
-    // TODO: criar conteudo da função 
-   }
+  // gethistoricalData( /*  TODO: criar parametros da função */) { 
+  //   // TODO: criar conteudo da função 
+  //  }
 
 }
