@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ConversionService } from '../model/conversion.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms'
-import{ Currency } from '../model/currency';
-import{ currencyOption} from '../model/currencyOption'
-import{ Calc } from '../model/calc';
+import { Currency } from '../model/currency';
+import { currencyOption } from '../model/currencyOption'
+import { Calc } from '../model/calc';
 
 
 @Component({
@@ -29,7 +29,7 @@ export class CalculatorComponent implements OnInit {
     // this.moneyTwo = "RS";
     // this.numResult;
     // this.numResultTwo = 1;
-    this.calc =  new Calc (0 , 0);
+    this.calc =  new Calc (null , 0);
     this.moneyTwo = new Currency("BRL", 20); 
     this.moneyBase = new currencyOption("USD");
 
@@ -76,6 +76,14 @@ export class CalculatorComponent implements OnInit {
         this.entries = Object.entries(moneydata.rates); 
         this.moneys = Object.keys(moneydata.rates);
         this.rates = Object.values(moneydata.rates); 
+        if(this.calc.inputValueOne == null || this.calc.inputValueOne == " ") {
+          this.calc.inputValueOne = 1;
+          let index = Object.keys(moneydata.rates).indexOf("BRL")
+          console.log(`index é igual a ${index}`)
+          this.moneyTwo.rate = this.rates[index]
+          this.calc.inputValueTwo = this.calc.inputValueOne * this.moneyTwo.rate
+          this.calc.inputValueTwo = this.calc.inputValueTwo.toFixed(2)
+        }
       // console.log(`moneydata (array keys dos dados da api.rates): ${this.rates}`)
       }
     );
@@ -104,9 +112,7 @@ export class CalculatorComponent implements OnInit {
   calcOne(event){
     this.changeCurrentRate();
     this.calc.inputValueTwo = this.calc.inputValueOne * this.moneyTwo.rate; 
-    // let result = event.target.value;
-    // this.numResult = Number(result);
-    // this.numResult *= this.currentRate;
+    this.calc.inputValueTwo = this.calc.inputValueTwo.toFixed(2)
   }
 
   calcTwo(event){
